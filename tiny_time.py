@@ -43,12 +43,18 @@ class TinyTime(object):
     def __float__(self):
         return self.hour + (self.minute / 60)
 
-    # def __lt__(self, other):
-    # def __le__(self, other):
-    # def __eq__(self, other):
-    # def __ne__(self, other):
-    # def __gt__(self, other):
-    # def __ge__(self, other):
+    def __lt__(self, other):
+        return float(self - other) < 0
+    def __le__(self, other):
+        return float(self - other) <= 0
+    def __eq__(self, other):
+        return float(self - other) == 0
+    def __ne__(self, other):
+        return float(self - other) != 0
+    def __gt__(self, other):
+        return float(self - other) > 0
+    def __ge__(self, other):
+        return float(self - other) >= 0
 
 if __name__ == '__main__':
 
@@ -64,3 +70,9 @@ if __name__ == '__main__':
     e = a + b
     print(e)
     print(float(e))
+    print(a > b)
+    print(a >= b)
+    print(a == b)
+    print(a != b)
+    print(a < b)
+    print(a <= b)
